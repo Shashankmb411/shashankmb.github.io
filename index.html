@@ -40,13 +40,73 @@ padding:10px;
 background:orange;
 border:none;
 }
+
+#results{
+margin-top:30px;
+}
 </style>
+
+<script>
+
+function searchPapers(){
+
+let query = document.getElementById("search").value.toLowerCase();
+let results = document.getElementById("results");
+
+if(
+query.includes("smart helmet") ||
+query.includes("helmet") ||
+query.includes("bike helmet") ||
+query.includes("motorcycle helmet") ||
+query.includes("helmet safety") ||
+query.includes("accident helmet") ||
+query.includes("iot helmet") ||
+query.includes("rider safety") ||
+query.includes("accident detection") ||
+query.includes("helmet sensor") ||
+query.includes("smart bike helmet") ||
+query.includes("gps helmet") ||
+query.includes("arduino helmet") ||
+query.includes("safety helmet system") ||
+query.includes("motorbike safety") ||
+query.includes("helmet monitoring") ||
+query.includes("intelligent helmet") ||
+query.includes("helmet technology") ||
+query.includes("driver safety") ||
+query.includes("helmet project")
+){
+
+results.innerHTML = `
+<h3>Research Papers</h3>
+
+<a href="smarthelmet.pdf" target="_blank">
+Smart Helmet Accident Detection System
+</a><br><br>
+
+<a href="helmetiot.pdf" target="_blank">
+IoT Based Smart Helmet System
+</a><br><br>
+
+<a href="helmetgps.pdf" target="_blank">
+GPS Enabled Smart Helmet
+</a>
+
+`;
+}
+else{
+results.innerHTML = "No papers found.";
+}
+
+}
+
+</script>
 
 </head>
 
 <body>
 
 <header>
+
 RESEARCH CENTER
 
 <img src="logo.png" class="logo">
@@ -54,12 +114,16 @@ RESEARCH CENTER
 </header>
 
 <div class="search-box">
+
 <h2>Search Research Papers</h2>
 
-<input type="text" placeholder="Search...">
-<button>Search</button>
+<input id="search" type="text" placeholder="Search research...">
+
+<button onclick="searchPapers()">Search</button>
 
 </div>
+
+<div id="results"></div>
 
 </body>
 </html>
