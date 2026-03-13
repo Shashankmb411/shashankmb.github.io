@@ -4,17 +4,19 @@
 <title>Research Center</title>
 
 <style>
+
 body{
 font-family: Arial;
 background:#0b3d5c;
 color:white;
 text-align:center;
+margin:0;
 }
 
 header{
 background:#00334d;
 padding:20px;
-font-size:30px;
+font-size:32px;
 font-weight:bold;
 position:relative;
 }
@@ -27,23 +29,40 @@ width:60px;
 }
 
 .search-box{
-margin-top:50px;
+margin-top:60px;
 }
 
 input{
 padding:10px;
-width:250px;
-}
-
-button{
-padding:10px;
-background:orange;
+width:260px;
 border:none;
 }
 
-#results{
-margin-top:30px;
+button{
+padding:10px 20px;
+background:orange;
+border:none;
+cursor:pointer;
 }
+
+#results{
+margin-top:40px;
+}
+
+#results h3{
+color:white;
+}
+
+#results a{
+color:black;
+background:white;
+padding:10px;
+display:inline-block;
+margin:10px;
+text-decoration:none;
+border-radius:5px;
+}
+
 </style>
 
 <script>
@@ -55,7 +74,7 @@ let results = document.getElementById("results");
 
 if(
 query.includes("smart helmet") ||
-query.includes("helmet") ||
+query.includes("smart helmet for minning") ||
 query.includes("bike helmet") ||
 query.includes("motorcycle helmet") ||
 query.includes("helmet safety") ||
@@ -72,7 +91,7 @@ query.includes("motorbike safety") ||
 query.includes("helmet monitoring") ||
 query.includes("intelligent helmet") ||
 query.includes("helmet technology") ||
-query.includes("driver safety") ||
+query.includes("helmet") ||
 query.includes("helmet project")
 ){
 
@@ -81,20 +100,28 @@ results.innerHTML = `
 
 <a href="smarthelmet.pdf" target="_blank">
 Smart Helmet Accident Detection System
-</a><br><br>
+</a>
+
+<br>
 
 <a href="helmetiot.pdf" target="_blank">
 IoT Based Smart Helmet System
-</a><br><br>
+</a>
+
+<br>
 
 <a href="helmetgps.pdf" target="_blank">
 GPS Enabled Smart Helmet
 </a>
 
 `;
+
 }
+
 else{
-results.innerHTML = "No papers found.";
+
+results.innerHTML = "No papers found";
+
 }
 
 }
