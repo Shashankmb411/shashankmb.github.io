@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Website</title>
+<title>Research Center</title>
+
 <style>
 body{
 font-family: Arial;
@@ -9,36 +10,55 @@ background:#0b3d5c;
 color:white;
 text-align:center;
 }
+
 header{
 background:#00334d;
 padding:20px;
 font-size:30px;
+font-weight:bold;
+position:relative;
 }
+
+.logo{
+position:absolute;
+right:20px;
+top:10px;
+width:60px;
+}
+
 .search-box{
 margin-top:50px;
 }
+
 input{
 padding:10px;
 width:250px;
 }
+
 button{
 padding:10px;
 background:orange;
 border:none;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-My Research Website
+RESEARCH CENTER
+
+<img src="logo.png" class="logo">
+
 </header>
 
 <div class="search-box">
 <h2>Search Research Papers</h2>
+
 <input type="text" placeholder="Search...">
 <button>Search</button>
+
 </div>
 
 </body>
