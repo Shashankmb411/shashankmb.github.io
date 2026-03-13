@@ -5,21 +5,32 @@
 
 <style>
 
+/* BODY BACKGROUND */
+
 body{
-font-family: Arial;
-background:#0b3d5c;
-color:white;
-text-align:center;
 margin:0;
+font-family: Arial;
+text-align:center;
+
+background-image: url("background.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height:100vh;
 }
 
+/* HEADER */
+
 header{
-background:#00334d;
+background:black;
+color:#d4af37;
 padding:20px;
-font-size:32px;
+font-size:35px;
 font-weight:bold;
 position:relative;
 }
+
+/* LOGO */
 
 .logo{
 position:absolute;
@@ -28,35 +39,41 @@ top:10px;
 width:60px;
 }
 
+/* SEARCH SECTION */
+
 .search-box{
-margin-top:60px;
+margin-top:150px;
 }
 
 input{
-padding:10px;
+padding:12px;
 width:260px;
+border-radius:5px;
 border:none;
 }
 
 button{
-padding:10px 20px;
-background:orange;
+padding:12px 20px;
+background:#d4af37;
 border:none;
+font-weight:bold;
 cursor:pointer;
 }
+
+/* RESULTS */
 
 #results{
 margin-top:40px;
 }
 
 #results h3{
-color:white;
+color:black;
 }
 
 #results a{
 color:black;
 background:white;
-padding:10px;
+padding:10px 20px;
 display:inline-block;
 margin:10px;
 text-decoration:none;
@@ -69,12 +86,12 @@ border-radius:5px;
 
 function searchPapers(){
 
-let query = document.getElementById("search").value.toLowerCase();
-let results = document.getElementById("results");
+let query=document.getElementById("search").value.toLowerCase();
+let results=document.getElementById("results");
 
 if(
 query.includes("smart helmet") ||
-query.includes("smart helmet for minning") ||
+query.includes("helmet") ||
 query.includes("bike helmet") ||
 query.includes("motorcycle helmet") ||
 query.includes("helmet safety") ||
@@ -86,29 +103,23 @@ query.includes("helmet sensor") ||
 query.includes("smart bike helmet") ||
 query.includes("gps helmet") ||
 query.includes("arduino helmet") ||
-query.includes("safety helmet system") ||
-query.includes("motorbike safety") ||
 query.includes("helmet monitoring") ||
-query.includes("intelligent helmet") ||
 query.includes("helmet technology") ||
-query.includes("helmet") ||
+query.includes("driver safety") ||
 query.includes("helmet project")
 ){
 
-results.innerHTML = `
+results.innerHTML=`
+
 <h3>Research Papers</h3>
 
 <a href="smarthelmet.pdf" target="_blank">
 Smart Helmet Accident Detection System
-</a>
-
-<br>
+</a><br>
 
 <a href="helmetiot.pdf" target="_blank">
 IoT Based Smart Helmet System
-</a>
-
-<br>
+</a><br>
 
 <a href="helmetgps.pdf" target="_blank">
 GPS Enabled Smart Helmet
@@ -120,7 +131,7 @@ GPS Enabled Smart Helmet
 
 else{
 
-results.innerHTML = "No papers found";
+results.innerHTML="No papers found";
 
 }
 
