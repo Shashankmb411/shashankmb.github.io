@@ -39,15 +39,29 @@ top:10px;
 width:60px;
 }
 
+/* NAVIGATION BAR */
+
+nav{
+background:#111;
+padding:12px;
+}
+
+nav a{
+color:#d4af37;
+margin:20px;
+text-decoration:none;
+font-size:18px;
+}
+
 /* SEARCH SECTION */
 
 .search-box{
-margin-top:150px;
+margin-top:120px;
 }
 
 input{
 padding:12px;
-width:260px;
+width:300px;
 border-radius:5px;
 border:none;
 }
@@ -131,7 +145,7 @@ GPS Enabled Smart Helmet
 
 else{
 
-results.innerHTML="No papers found";
+results.innerHTML="<h3>No papers found</h3>";
 
 }
 
@@ -150,6 +164,17 @@ RESEARCH CENTER
 <img src="logo.png" class="logo">
 
 </header>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Browse Papers</a>
+<a href="#">Authors</a>
+<a href="#">Login</a>
+
+</nav>
 
 <div class="search-box">
 
