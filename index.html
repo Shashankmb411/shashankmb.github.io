@@ -132,11 +132,43 @@ margin-bottom:15px;
 font-size:20px;
 line-height:1.6;
 }
+/* AUTHOR PROFILE */
+
+.author-section{
+display:none;
+margin-top:100px;
+padding:40px;
+background:#f5f5f5;
+width:60%;
+margin-left:auto;
+margin-right:auto;
+border-radius:10px;
+}
+
+.author-section img{
+width:150px;
+border-radius:50%;
+margin-bottom:20px;
+}
+
+.author-section h2{
+color:#d4af37;
+}
 
 
 </style>
 
 <script>
+function showAuthor(){
+
+document.getElementById("authorProfile").style.display="block";
+
+window.scrollTo({
+top:document.getElementById("authorProfile").offsetTop,
+behavior:"smooth"
+});
+
+}
 
 /* LOGIN CHECK */
 
@@ -316,7 +348,7 @@ RESEARCH CENTER
 
 <a href="#">Home</a>
 <a href="#">Browse Papers</a>
-<a href="#">Authors</a>
+<a href="#" onclick="showAuthor()">Authors</a>
 <a href="#" onclick="logout()">Logout</a>
 
 </nav>
@@ -348,6 +380,25 @@ improve rider protection and road safety. By integrating smart sensors,
 communication modules, and real-time monitoring systems, these technologies
 aim to reduce accidents and enhance emergency response mechanisms.
 </p>
+
+</div>
+<!-- AUTHOR PROFILE -->
+
+<div id="authorProfile" class="author-section">
+
+<img src="author.jpg">
+
+<h2>Author Profile</h2>
+
+<p><b>Name:</b> Shashank Basavaraj</p>
+
+<p><b>Field:</b> Electronics and Communication Engineering</p>
+
+<p><b>Research Area:</b> IoT Based Smart Helmet Systems</p>
+
+<p><b>Interest:</b> Embedded Systems, IoT Safety Devices, Digital Twin Technology</p>
+
+<p><b>Email:</b> yourmail@email.com</p>
 
 </div>
 
