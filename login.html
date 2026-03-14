@@ -10,12 +10,12 @@ font-family:Arial;
 background:#111;
 color:white;
 text-align:center;
-padding-top:120px;
+padding-top:150px;
 }
 
 .login-box{
 background:black;
-width:300px;
+width:320px;
 margin:auto;
 padding:30px;
 border-radius:10px;
@@ -41,18 +41,35 @@ cursor:pointer;
 
 <script>
 
+/* USERS DATABASE */
+
+let users = [
+{username:"9123456789",password:"Abcdefghi1@"},
+{username:"9234567890",password:"Bcdefghij2#"},
+{username:"9345678901",password:"Cdefghijk3$"}
+];
+
+/* LOGIN FUNCTION */
+
 function login(){
 
 let username=document.getElementById("username").value;
 let password=document.getElementById("password").value;
 
-/* Author accounts */
+let user = users.find(u => u.username === username && u.password === password);
 
-if(username=="author1" && password=="1234"){
-window.location="dashboard.html";
+if(user){
+
+localStorage.setItem("loggedIn","true");
+
+window.location="index.html";
+
 }
+
 else{
+
 alert("Invalid Login");
+
 }
 
 }
