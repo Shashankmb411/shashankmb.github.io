@@ -35,105 +35,17 @@ background:#d4af37;
 border:none;
 font-weight:bold;
 cursor:pointer;
+margin:5px;
 }
 
 </style>
 
 <script>
 
-/* USERS DATABASE */
-
 let users = [
 {username:"9123456789",password:"Abcdefghi1@"},
-{username:"9234567890",password:"Bcdefghij2#"},
-{username:"9345678901",password:"Cdefghijk3$"},
-{username:"9456789012",password:"Defghijkl4%"},
-{username:"9567890123",password:"Efghijklm5&"},
-{username:"9678901234",password:"Fghijklmn6@"},
-{username:"9789012345",password:"Ghijklmno7#"},
-{username:"9890123456",password:"Hijklmnop8$"},
-{username:"9901234567",password:"Ijklmnopq9%"},
-{username:"9012345678",password:"Jklmnopqr1&"},
-
-{username:"9123456790",password:"Klmnopqrs2@"},
-{username:"9234567801",password:"Lmnopqrst3#"},
-{username:"9345678012",password:"Mnopqrstu4$"},
-{username:"9456780123",password:"Nopqrstuv5%"},
-{username:"9567801234",password:"Opqrstuvw6&"},
-{username:"9678012345",password:"Pqrstuvwx7@"},
-{username:"9780123456",password:"Qrstuvwxy8#"},
-{username:"9891234567",password:"Rstuvwxyz9$"},
-{username:"9902345678",password:"Stuvwxyza1%"},
-{username:"9013456789",password:"Tuvwxyzab2&"},
-
-{username:"9124567890",password:"Uvwxyzabc3@"},
-{username:"9235678901",password:"Vwxyzabcd4#"},
-{username:"9346789012",password:"Wxyzabcde5$"},
-{username:"9457890123",password:"Xyzabcdef6%"},
-{username:"9568901234",password:"Yzabcdefg7&"},
-{username:"9679012345",password:"Zabcdefgh8@"},
-{username:"9780123467",password:"Abcdefghi9#"},
-{username:"9891234578",password:"Bcdefghij1$"},
-{username:"9902345689",password:"Cdefghijk2%"},
-{username:"9013456790",password:"Defghijkl3&"},
-
-{username:"9124567801",password:"Efghijklm4@"},
-{username:"9235678012",password:"Fghijklmn5#"},
-{username:"9346780123",password:"Ghijklmno6$"},
-{username:"9457891234",password:"Hijklmnop7%"},
-{username:"9568902345",password:"Ijklmnopq8&"},
-{username:"9679013456",password:"Jklmnopqr9@"},
-{username:"9780124567",password:"Klmnopqrs1#"},
-{username:"9891235678",password:"Lmnopqrst2$"},
-{username:"9902346789",password:"Mnopqrstu3%"},
-{username:"9013457890",password:"Nopqrstuv4&"},
-
-{username:"9124568012",password:"Opqrstuvw5@"},
-{username:"9235679123",password:"Pqrstuvwx6#"},
-{username:"9346780234",password:"Qrstuvwxy7$"},
-{username:"9457891345",password:"Rstuvwxyz8%"},
-{username:"9568902456",password:"Stuvwxyza9&"},
-{username:"9679013567",password:"Tuvwxyzab1@"},
-{username:"9780124678",password:"Uvwxyzabc2#"},
-{username:"9891235789",password:"Vwxyzabcd3$"},
-{username:"9902346890",password:"Wxyzabcde4%"},
-{username:"9013458901",password:"Xyzabcdef5&"},
-
-{username:"9124569023",password:"Yzabcdefg6@"},
-{username:"9235670134",password:"Zabcdefgh7#"},
-{username:"9346781245",password:"Abcdefghi8$"},
-{username:"9457892356",password:"Bcdefghij9%"},
-{username:"9568903467",password:"Cdefghijk1&"},
-{username:"9679014578",password:"Defghijkl2@"},
-{username:"9780125689",password:"Efghijklm3#"},
-{username:"9891236790",password:"Fghijklmn4$"},
-{username:"9902347801",password:"Ghijklmno5%"},
-{username:"9013458912",password:"Hijklmnop6&"},
-
-{username:"9124560134",password:"Ijklmnopq7@"},
-{username:"9235671245",password:"Jklmnopqr8#"},
-{username:"9346782356",password:"Klmnopqrs9$"},
-{username:"9457893467",password:"Lmnopqrst1%"},
-{username:"9568904578",password:"Mnopqrstu2&"},
-{username:"9679015689",password:"Nopqrstuv3@"},
-{username:"9780126790",password:"Opqrstuvw4#"},
-{username:"9891237801",password:"Pqrstuvwx5$"},
-{username:"9902348912",password:"Qrstuvwxy6%"},
-{username:"9013459023",password:"Rstuvwxyz7&"},
-
-{username:"9124561245",password:"Stuvwxyza8@"},
-{username:"9235672356",password:"Tuvwxyzab9#"},
-{username:"9346783467",password:"Uvwxyzabc1$"},
-{username:"9457894578",password:"Vwxyzabcd2%"},
-{username:"9568905689",password:"Wxyzabcde3&"},
-{username:"9679016790",password:"Xyzabcdef4@"},
-{username:"9780127801",password:"Yzabcdefg5#"},
-{username:"9891238912",password:"Zabcdefgh6$"},
-{username:"9902349023",password:"Abcdefghi7%"},
-{username:"9013450134",password:"Bcdefghij8&"}
+{username:"9234567890",password:"Bcdefghij2#"}
 ];
-
-/* LOGIN FUNCTION */
 
 function login(){
 
@@ -149,7 +61,6 @@ localStorage.setItem("loggedIn","true");
 window.location="index.html";
 
 }
-
 else{
 
 alert("Invalid Login");
@@ -173,6 +84,12 @@ alert("Invalid Login");
 <input id="password" type="password" placeholder="Password"><br>
 
 <button onclick="login()">Login</button>
+
+<br>
+
+<button onclick="window.location='register.html'">
+Register
+</button>
 
 </div>
 
