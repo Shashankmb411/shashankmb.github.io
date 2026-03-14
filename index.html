@@ -264,6 +264,12 @@ let chat=document.getElementById("chatMessages");
 
 chat.innerHTML += "<p><b>You:</b> "+msg+"</p>";
 
+input.value="";
+
+/* 2 SECOND DELAY */
+
+setTimeout(function(){
+
 let reply="I did not understand.";
 
 if(msg.includes("hello") || msg.includes("hi")){
@@ -282,17 +288,14 @@ else if(msg.includes("author")){
 reply="Click the Authors button to see the researcher profile.";
 }
 
-else if(msg.includes("login")){
-reply="Login is required to access the research portal.";
-}
-
 chat.innerHTML += "<p><b>AI Bot:</b> "+reply+"</p>";
-
-input.value="";
 
 chat.scrollTop=chat.scrollHeight;
 
+},2000);
+
 }
+
 
 /* LOGOUT */
 
