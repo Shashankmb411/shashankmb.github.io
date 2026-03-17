@@ -256,189 +256,44 @@ box.style.display="block";
 
 }
 
-function sendMessage(){
+async function sendMessage(){
 
 let input=document.getElementById("chatInput");
-let msg=input.value.toLowerCase();
+let msg=input.value;
 let chat=document.getElementById("chatMessages");
 
-chat.innerHTML += "<p><b>You:</b> "+msg+"</p>";
+if(msg.trim()=="") return;
 
+/* USER MESSAGE */
+chat.innerHTML += `<div style='text-align:right;color:blue;margin:5px;'>${msg}</div>`;
 input.value="";
 
-setTimeout(function(){
-
-let reply="Sorry, I don't understand. Please ask about research papers, helmet systems, login, or authors.";
-
-/* GREETING */
-
-if(msg.includes("hello") || msg.includes("hi") || msg.includes("hey")){
-reply="Hello! Welcome to the Research Center.";
-}
-
-else if(msg.includes("how are you")){
-reply="I am an AI assistant. I am working perfectly.";
-}
-
-else if(msg.includes("your name")){
-reply="I am the AI Help Bot for this research portal.";
-}
-
-/* WEBSITE HELP */
-
-else if(msg.includes("research")){
-reply="You can search research papers using the search box.";
-}
-
-else if(msg.includes("paper")){
-reply="Research papers are available related to smart helmet systems.";
-}
-
-else if(msg.includes("search")){
-reply="Type a research topic in the search bar and click search.";
-}
-
-else if(msg.includes("login")){
-reply="Login is required to access the research portal.";
-}
-
-else if(msg.includes("author")){
-reply="Click the Authors button to see the author profile.";
-}
-
-/* HELMET RESEARCH */
-
-else if(msg.includes("helmet")){
-reply="Smart helmet research focuses on accident detection and rider safety.";
-}
-
-else if(msg.includes("smart helmet")){
-reply="Smart helmets use sensors, GPS, and IoT technology.";
-}
-
-else if(msg.includes("iot")){
-reply="IoT connects devices like sensors and controllers to the internet.";
-}
-
-else if(msg.includes("gps")){
-reply="GPS is used in helmets for accident location tracking.";
-}
-
-else if(msg.includes("arduino")){
-reply="Arduino is commonly used for smart helmet prototypes.";
-}
-
-else if(msg.includes("sensor")){
-reply="Sensors detect crash impact, alcohol level, and rider movement.";
-}
-
-else if(msg.includes("accident")){
-reply="Smart helmets detect accidents and send alerts automatically.";
-}
-
-else if(msg.includes("safety")){
-reply="Helmet safety systems help reduce road accidents.";
-}
-
-/* PROJECT HELP */
-
-else if(msg.includes("project")){
-reply="Smart Helmet is a popular ECE project using IoT.";
-}
-
-else if(msg.includes("college")){
-reply="Many college projects focus on smart safety systems.";
-}
-
-else if(msg.includes("ece")){
-reply="ECE students often work on IoT and embedded system projects.";
-}
-
-else if(msg.includes("embedded")){
-reply="Embedded systems control sensors and microcontrollers.";
-}
-
-else if(msg.includes("microcontroller")){
-reply="Microcontrollers like Arduino control the smart helmet system.";
-}
-
-/* TECH HELP */
-
-else if(msg.includes("machine learning")){
-reply="Machine learning can improve accident prediction systems.";
-}
-
-else if(msg.includes("ai")){
-reply="Artificial Intelligence helps automate safety monitoring.";
-}
-
-else if(msg.includes("data")){
-reply="Sensors collect data for monitoring rider safety.";
-}
-
-else if(msg.includes("technology")){
-reply="Modern technology improves transportation safety.";
-}
-
-/* WEBSITE QUESTIONS */
-
-else if(msg.includes("who created this")){
-reply="This research portal was created by Shashank Basavaraj.";
-}
-
-else if(msg.includes("contact")){
-reply="You can contact the author through the Instagram link below.";
-}
-
-else if(msg.includes("instagram")){
-reply="Scroll down and click the Instagram follow button.";
-}
-
-/* EXTRA RANDOM RESPONSES */
-
-else if(msg.includes("thanks")){
-reply="You're welcome!";
-}
-
-else if(msg.includes("ok")){
-reply="Okay 👍";
-}
-
-else if(msg.includes("good")){
-reply="Glad to hear that.";
-}
-
-else if(msg.includes("bye")){
-reply="Goodbye! Have a nice day.";
-}
-
-/* RANDOM KNOWLEDGE RESPONSES */
-
-else if(msg.includes("road safety")){
-reply="Road safety technologies help reduce accidents.";
-}
-
-else if(msg.includes("vehicle")){
-reply="Vehicle safety systems protect drivers and riders.";
-}
-
-else if(msg.includes("innovation")){
-reply="Technology innovation improves safety systems.";
-}
-
-else if(msg.includes("future")){
-reply="Future helmets may include AI and real-time health monitoring.";
-}
-
-else if(msg.includes("research center")){
-reply="This portal helps users find smart helmet research papers.";
-}
-
-chat.innerHTML += "<p><b>AI Bot:</b> "+reply+"</p>";
-
+/* TYPING */
+chat.innerHTML += "<div id='typing'>AI is typing...</div>";
 chat.scrollTop=chat.scrollHeight;
 
-},2000);
+try{
+
+const response = await fetch("http://localhost:3000/chat", {
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body: JSON.stringify({ message: msg })
+});
+
+const data = await response.json();
+
+document.getElementById("typing").remove();
+
+/* AI RESPONSE */
+chat.innerHTML += `<div style='text-align:left;color:green;margin:5px;'>${data.reply}</div>`;
+chat.scrollTop=chat.scrollHeight;
+
+}catch(error){
+
+document.getElementById("typing").remove();
+chat.innerHTML += `<div style='color:red;'>Error connecting to AI</div>`;
+
+}
 
 }
 
