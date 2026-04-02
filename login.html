@@ -72,44 +72,14 @@ cursor:pointer;
 margin:5px;
 }
 
+
 </style>
 
 <script>
-const eyes=document.querySelectorAll(".eye");
-const usernameInput=document.getElementById("username");
-const passwordInput=document.getElementById("password");
-const showPass=document.getElementById("showPass");
 
-/* 👀 LOOK USERNAME */
-usernameInput.addEventListener("focus",()=>{
-eyes.forEach(e=>e.style.transform="translateX(5px)");
-});
 
-/* 👀 LOOK LEFT PASSWORD */
-passwordInput.addEventListener("focus",()=>{
-eyes.forEach(e=>e.style.transform="translateX(-8px)");
-});
 
-/* 😴 SHOW PASSWORD */
-showPass.addEventListener("change",()=>{
-if(showPass.checked){
-passwordInput.type="text";
-eyes.forEach(e=>e.classList.add("closed"));
-}else{
-passwordInput.type="password";
-eyes.forEach(e=>e.classList.remove("closed"));
-}
-});
 
-/* 👁️ BLINK */
-setInterval(()=>{
-eyes.forEach(e=>e.classList.add("closed"));
-
-setTimeout(()=>{
-eyes.forEach(e=>e.classList.remove("closed"));
-},200);
-
-},3000);
 
 let users = [
 {username:"9123456789",password:"Abcdefghi1@"},
@@ -201,6 +171,7 @@ let users = [
 {username:"9013450134",password:"Bcdefghij8&"}
 ];
 
+
 function login(){
 
 let username=document.getElementById("username").value;
@@ -222,6 +193,55 @@ alert("Invalid Login");
 }
 
 }
+window.onload=function(){
+
+const eyes=document.querySelectorAll(".eye");
+const usernameInput=document.getElementById("username");
+const passwordInput=document.getElementById("password");
+const showPass=document.getElementById("showPass");
+
+/* 👀 FOLLOW MOUSE */
+document.addEventListener("mousemove",(e)=>{
+let x=(e.clientX/window.innerWidth-0.5)*10;
+let y=(e.clientY/window.innerHeight-0.5)*10;
+
+eyes.forEach(eye=>{
+eye.style.transform=`translate(${x}px,${y}px)`;
+});
+});
+
+/* 👀 USERNAME */
+usernameInput.addEventListener("focus",()=>{
+eyes.forEach(e=>e.style.transform="translateX(5px)");
+});
+
+/* 👀 PASSWORD */
+passwordInput.addEventListener("focus",()=>{
+eyes.forEach(e=>e.style.transform="translateX(-8px)");
+});
+
+/* 😴 SHOW PASSWORD */
+showPass.addEventListener("change",()=>{
+if(showPass.checked){
+passwordInput.type="text";
+eyes.forEach(e=>e.classList.add("closed"));
+}else{
+passwordInput.type="password";
+eyes.forEach(e=>e.classList.remove("closed"));
+}
+});
+
+/* 👁️ BLINK */
+setInterval(()=>{
+eyes.forEach(e=>e.classList.add("closed"));
+
+setTimeout(()=>{
+eyes.forEach(e=>e.classList.remove("closed"));
+},200);
+
+},3000);
+
+};
 
 </script>
 
@@ -237,13 +257,15 @@ alert("Invalid Login");
 <div class="animals">
 
 <div class="animal">
-<img src="https://i.imgur.com/4AiXzf8.png">
+<img src="https://cdn-icons-png.flaticon.com/512/616/616430.png">
 <div class="eye left"></div>
 <div class="eye right"></div>
 </div>
 
 <div class="animal">
-<img src="https://i.imgur.com/JIX9G5P.png">
+<img src="https://cdn-icons-png.flaticon.com/512/616/616408.png">
+
+
 <div class="eye left"></div>
 <div class="eye right"></div>
 </div>
